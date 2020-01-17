@@ -1,0 +1,48 @@
+package com.example.HW4.Resource;
+
+import com.example.HW4.Model.Photo;
+import com.example.HW4.Service.PhotoServ;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("api/albums/photos")
+public class PhotoReso {
+    @Autowired
+    private PhotoServ Serv;
+
+    @GetMapping
+    public List<Photo> getPhoto()
+    {
+        return Serv.getPhoto();
+    }
+
+    @PostMapping
+    public void savePhoto(@RequestBody Photo photo)
+    {
+        Serv.save(photo);
+    }
+
+    @PutMapping("/{id}")
+    public void editPhoto(@RequestBody Photo photo, @PathVariable("id") String id)
+    {
+        photo.setId(id);
+        Serv.edit(photo);
+    }
+
+    @DeleteMapping(value="/{id}")
+    public void deletePhoto(@PathVariable("id") String id)
+    {
+        //album.setId(id);
+        Serv.delete(id);
+    }
+
+    @DeleteMapping
+    public void deleteAllPhoto()
+    {
+        //album.setId(id);
+        Serv.deleteAll(getPhoto());
+    }
+}
