@@ -40,10 +40,16 @@ public class AlbumReso {
     }
 
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping("/{id}")
     public void deleteAlbum(@PathVariable("id") String id)
     {
-        //album.setId(id);
         Serv.delete(id);
     }
+
+    /*@DeleteMapping("/all/{id}")
+    public void deletePhotosComment(@PathVariable("id") String id)
+    {
+        //album.setId(id);
+        Serv.deletePhotosComment(id);
+    }*/
 }

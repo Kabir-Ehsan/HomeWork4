@@ -35,7 +35,6 @@ public class PhotoReso {
     @DeleteMapping(value="/{id}")
     public void deletePhoto(@PathVariable("id") String id)
     {
-        //album.setId(id);
         Serv.delete(id);
     }
 

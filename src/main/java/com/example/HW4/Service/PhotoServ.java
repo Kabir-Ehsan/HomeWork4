@@ -13,7 +13,7 @@ import java.util.Optional;
 public class PhotoServ{
 
     @Autowired
-    private PhotoRepo repo;
+    PhotoRepo repo;
 
     @Autowired
     CommentServ commentServ;
@@ -47,8 +47,8 @@ public class PhotoServ{
         repo.deleteAll(photo);
     }
 
-   public Photo getPhotoByAlbumId(String AlbumId) {
-        return repo.findByAlbumId(AlbumId);
+  public Photo getPhotoByAlbumId(String id) {
+        return repo.findByAlbumId(id);
     }
 
     //public Optional<Photo> findById(String id) {

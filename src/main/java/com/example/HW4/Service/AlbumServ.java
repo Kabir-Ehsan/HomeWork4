@@ -27,21 +27,30 @@ public class AlbumServ{
         //return new ArrayList<>();
     }
 
-    public void save(Album album) {
+    public void save(Album album)
+    {
         repo.save(album);
     }
 
-    public void edit(Album album) {
+    public void edit(Album album)
+    {
         repo.save(album);
     }
 
-    public void delete(String id) {
-        //commentServ.deleteByAlbumId(id);
-        commentServ.deleteCommentsByAlbumId(photoServ.getPhotoByAlbumId(id).getId());
-        photoServ.deleteByAlbumId(id);
+    public void delete(String id)
+    {
         repo.deleteById(id);
-       // commentServ.deleteByPhotoId(id);
+        photoServ.deleteByAlbumId(id);
+        commentServ.deleteComments((photoServ.getPhotoByAlbumId(id)).getId());
     }
+
+        //commentServ.deleteComments((photoServ.getPhotoByAlbumId(id)).getId());
+        //
+
+    /*public void deletePhotosComment(String albumId) {
+        commentServ.deleteCommentsByAlbumId(photoServ.getPhotoByAlbumId(albumId).getId());
+        //photoServ.deleteByAlbumId(albumId);
+    }*/
 
     public void deleteAll(List<Album>album)
     {

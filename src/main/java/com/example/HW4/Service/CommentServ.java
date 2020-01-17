@@ -24,15 +24,18 @@ public class CommentServ {
         //return new ArrayList<>();
     }
 
-    public void save(Comment comment) {
+    public void save(Comment comment)
+    {
         repo.save(comment);
     }
 
-    public void edit(Comment comment) {
+    public void edit(Comment comment)
+    {
         repo.save(comment);
     }
 
-    public void delete(String id) {
+    public void delete(String id)
+    {
         repo.deleteById (id);
     }
 
@@ -45,7 +48,7 @@ public class CommentServ {
         repo.deleteAll(comment);
     }
 
-    public void deleteCommentsByAlbumId(String photoId) {
+    public void deleteComments(String photoId) {
         repo.deleteByPhotoId(photoId);
     }
 
